@@ -1,23 +1,19 @@
 import { TableCell, TableRow } from '@mui/material'
 import './pokemon-list-item.css'
 import capitalizeFirtsLetter from '../../utils/capitalize-first-letter'
-import getPokemonService from '../../services/get-pokemon.service'
-import { useDispatch } from 'react-redux'
-import { pokemonReceived, pokemonLoading } from '../../store/pokemonSlice'
 
-function PokemonListItem({ name }: { name: string }) {
-  const dispatch = useDispatch()
+type Props = { 
+  name: string
+  onGetPokemon: (name: string) => void
+}
 
-  const getPokemon = async () => {
-    dispatch(pokemonLoading())
-    const result = await getPokemonService(name)
-    dispatch(pokemonReceived(result))
-  }
+function PokemonListItem(props: Props) {
+  const { name, onGetPokemon } = props
 
   return (
     <TableRow
       key={name}
-      onClick={getPokemon}
+      onClick={() => onGetPokemon(name)}
       sx={{
         "&:hover": {
           cursor: "pointer"
