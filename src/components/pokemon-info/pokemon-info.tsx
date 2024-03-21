@@ -1,6 +1,6 @@
 import { Box } from "@mui/material"
 import { useSelector } from "react-redux"
-import { selectPokemonInfo, selectPokemonLoading } from "../../store/features/pokemon-info/pokemonSlice"
+import { selectPokemonInfo, selectPokemonLoading } from "../../store/features/pokemon/pokemonSlice"
 import CircularProgress from '@mui/material/CircularProgress';
 
 const PokemonInfo = () => {
