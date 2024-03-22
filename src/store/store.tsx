@@ -1,6 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit'
-import pokemonInfoReducer from './features/pokemon/pokemonSlice'
 import createSagaMiddleware from 'redux-saga'
+
+import pokemonInfoReducer from './features/pokemon/pokemonSlice'
 import { watcherSaga } from './features/pokemon/getPokemonSaga'
 
 // Create the saga middleware
@@ -11,7 +12,7 @@ export default configureStore({
     reducer: {
         pokemonInfo: pokemonInfoReducer
     },
-    middleware: (getDefaultMiddleware) => 
+    middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware().concat(middleware)
 })
 

@@ -1,34 +1,22 @@
 This application is set up using React + TypeScript + Vite
 
-## Make sure you have installed:
-1. node v20.10.0
-2. npm v10.2.3
-
 ## Run app:
 
-#### Clone app from Github https://github.com/TamilaAhmedovna/pokemons_test_task
-#### `npm install`
-#### `npm run dev`
-Go to http://localhost:5173/ in the browser
+1. Make sure you have installed:
+    - node v20.10.0
+    - npm v10.2.3
+2. Clone app from Github https://github.com/TamilaAhmedovna/pokemons_test_task
+3. In the root project folder run:
+    - `npm install`
+    - `npm run dev`
+5. Go to http://localhost:5173/ in the browser
 
-## Expanding the ESLint configuration
+## Some comments and small additions to pay attention on:
+1. In order to show more info in the table it is worth implementing an additional endpoint for that. In this case we won’t need to make 5 more requests for every page.
+2. Sorting is implemented in the easiest way since it is not clear what the user value here.
+3. It shouldn’t be possible to click on pagination controls to get a new set of Pokemons until the previous request is in pending state.
+4. It is needed to set up linter and prettier; better to put styles in dedicated files.
+5. There is no need to use Redux since the app is too small.
+6. When you click on the same Pokemon multiple times only one request will be sent.
+7. Delay of fetching pokemon info is implemented with Saga Effect Delay.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list

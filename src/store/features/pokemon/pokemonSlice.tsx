@@ -1,9 +1,9 @@
-import { createSlice } from "@reduxjs/toolkit"
+import { createSlice } from '@reduxjs/toolkit'
 
 type PokemonType = {
   info: {
     base_experience?: number,
-    name?: string 
+    name?: string
   },
   loading: 'idle' | 'pending'
 }
@@ -18,7 +18,7 @@ const initialState: PokemonType = {
 }
 
 export const pokemonSlice = createSlice({
-  name: 'pokemonInfo', 
+  name: 'pokemonInfo',
   initialState,
   reducers: {
     pokemonRequested: (state, action) => {
@@ -36,15 +36,15 @@ export const pokemonSlice = createSlice({
 })
 
 // export actions for state updating
-export const { 
-  pokemonReceived, 
-  pokemonRequested 
+export const {
+  pokemonReceived,
+  pokemonRequested
 } = pokemonSlice.actions
 
 // export state items to use
-export const selectPokemonInfo = (state: StateType) => 
+export const selectPokemonInfo = (state: StateType) =>
   state.pokemonInfo.info
-export const selectPokemonLoading = (state: StateType) => 
+export const selectPokemonLoading = (state: StateType) =>
   state.pokemonInfo.loading
 
 export default pokemonSlice.reducer

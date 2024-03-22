@@ -1,9 +1,9 @@
-import axios from "axios";
-import { commonUrl } from "../config/config";
+import axios from 'axios'
 
-const getPokemonService = async (name: string) => {
-    const { data } = (await axios.get(`${commonUrl}/pokemon/${name}`));
+const getPokemonService = async (url: string) => {
+    const { data } = (await axios.get(url))
+
     return data
   }
 
-  export default getPokemonService;
+  export default getPokemonService
